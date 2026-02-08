@@ -7,7 +7,7 @@ export default function FutureSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="relative py-12 overflow-hidden" ref={ref}>
+    <section className="relative py-16 md:py-20 overflow-hidden" ref={ref}>
       <div className="absolute inset-0">
         <img src={fleetImage} alt="" className="w-full h-full object-cover opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />

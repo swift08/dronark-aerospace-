@@ -8,7 +8,7 @@ export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <section id="contact" className="relative py-12" ref={ref}>
+    <section id="contact" className="relative py-16 md:py-20" ref={ref}>
       <div className="absolute inset-0 bg-grid opacity-10" />
       <div className="max-w-3xl mx-auto px-6 md:px-10 section-glass section-glass-hover rounded-2xl py-8 md:py-12 w-full relative z-10">
         <motion.div

@@ -9,7 +9,7 @@ export default function MerchSection() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="merchandise" className="relative py-12 overflow-hidden" ref={ref}>
+    <section id="merchandise" className="relative py-16 md:py-20 overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-grid opacity-[0.06]" />
       <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-10 section-glass glass-premium section-glass-hover rounded-2xl py-8 md:py-12 w-full">
         <motion.div

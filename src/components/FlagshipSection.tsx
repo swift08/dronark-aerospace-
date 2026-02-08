@@ -15,7 +15,7 @@ export default function FlagshipSection() {
   const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
 
   return (
-    <section className="relative py-12 overflow-hidden">
+    <section className="relative py-16 md:py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-10 section-glass section-glass-hover rounded-2xl py-8 md:py-12 w-full" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}

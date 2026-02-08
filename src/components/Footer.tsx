@@ -1,4 +1,4 @@
-import logo from "@/assets/logo.jpeg";
+import logo from "@/assets/logo.PNG";
 import { Instagram, Mail, Youtube } from "lucide-react";
 
 const INSTAGRAM_URL = "https://www.instagram.com/dronark.aerospace";
