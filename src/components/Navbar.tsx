@@ -39,7 +39,7 @@ export default function Navbar() {
           <img
             src={logo}
             alt="Dronark Aerospace"
-            className="h-9 w-auto object-contain"
+            className="h-12 md:h-14 w-auto object-contain animate-breathe animate-breathe-glow"
           />
         </a>
 

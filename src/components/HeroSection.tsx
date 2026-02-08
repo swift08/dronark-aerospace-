@@ -63,7 +63,7 @@ export default function HeroSection() {
         >
           <a
             href="#contact-form"
-            className="btn-glass-primary group relative px-8 py-3.5 font-display text-sm tracking-widest uppercase text-primary-foreground rounded-lg overflow-hidden hover-glow transition-all duration-300"
+            className="btn-glass-primary group relative inline-block px-8 py-3.5 font-display text-sm tracking-widest uppercase text-primary-foreground rounded-lg overflow-hidden hover-glow transition-all duration-300 animate-breathe"
           >
             <span className="relative z-10">Request a Demo</span>
             <div className="absolute inset-0 bg-accent/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
