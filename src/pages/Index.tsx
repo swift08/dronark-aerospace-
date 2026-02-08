@@ -11,6 +11,7 @@ import FounderSection from "@/components/FounderSection";
 import FounderMessageSection from "@/components/FounderMessageSection";
 import FutureSection from "@/components/FutureSection";
 import PartnersSection from "@/components/PartnersSection";
+import MerchSection from "@/components/MerchSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -34,6 +35,7 @@ const Index = () => {
       <SuccessStoriesSection />
       <FutureSection />
       <PartnersSection />
+      <MerchSection />
       <ContactSection />
       <Footer />
     </motion.div>

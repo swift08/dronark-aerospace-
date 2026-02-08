@@ -38,7 +38,7 @@ export default function TechnologySection() {
     <section id="technology" className="relative py-12 overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-20" />
 
-      <div ref={ref} className="max-w-7xl mx-auto px-6 md:px-10 relative z-10 section-glass rounded-2xl py-8 md:py-12 w-full">
+      <div ref={ref} className="max-w-7xl mx-auto px-6 md:px-10 relative z-10 section-glass section-glass-hover rounded-2xl py-8 md:py-12 w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}

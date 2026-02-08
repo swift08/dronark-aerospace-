@@ -9,7 +9,7 @@ export default function FounderSection() {
   return (
     <section id="founder" className="relative py-12 overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-grid opacity-[0.06]" />
-      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-10 section-glass rounded-2xl py-8 md:py-12 w-full">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-10 section-glass section-glass-hover rounded-2xl py-8 md:py-12 w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -36,7 +36,7 @@ export default function FounderSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative flex justify-center lg:justify-start order-2 lg:order-1"
           >
-            <div className="w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[440px]">
+            <div className="w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[440px] hover-container rounded-2xl border border-border/50 overflow-hidden">
               <img
                   src={founderImage}
                   alt="N. M. Prathap - Founder, Dronark Aerospace"

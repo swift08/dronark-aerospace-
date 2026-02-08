@@ -16,7 +16,7 @@ export default function FlagshipSection() {
 
   return (
     <section className="relative py-12 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 section-glass rounded-2xl py-8 md:py-12 w-full" ref={ref}>
+      <div className="max-w-7xl mx-auto px-6 md:px-10 section-glass section-glass-hover rounded-2xl py-8 md:py-12 w-full" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -55,7 +55,7 @@ export default function FlagshipSection() {
                 .map((label, i) => (
                   <span
                     key={`${label}-${i}`}
-                    className="shrink-0 px-3 py-1.5 rounded-full border border-border/50 whitespace-nowrap"
+                    className="shrink-0 px-3 py-1.5 rounded-full border border-border/50 whitespace-nowrap transition-colors duration-300 hover:border-primary/40 hover:shadow-[0_0_12px_hsl(199_89%_48%/0.15)]"
                   >
                     {label}
                   </span>
@@ -73,7 +73,7 @@ export default function FlagshipSection() {
           transition={{ duration: 1, delay: 0.3 }}
           className="relative max-w-4xl mx-auto"
         >
-          <div className="relative rounded-xl overflow-hidden box-glow">
+          <div className="relative rounded-xl overflow-hidden box-glow hover-container">
             <img
               src={droneImage}
               alt="Agridrone series - agricultural UAV"

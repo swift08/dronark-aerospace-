@@ -33,7 +33,7 @@ export default function WhyDronarkSection() {
     <section id="why-dronark" className="relative py-12 overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-grid opacity-10" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(100%,600px)] h-[400px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
-      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-10 section-glass rounded-2xl py-8 md:py-12 w-full">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-10 section-glass section-glass-hover rounded-2xl py-8 md:py-12 w-full">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}

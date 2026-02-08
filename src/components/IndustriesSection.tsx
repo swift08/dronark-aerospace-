@@ -42,7 +42,7 @@ export default function IndustriesSection() {
   return (
     <section id="industries" className="relative py-12" ref={ref}>
       <div className="absolute inset-0 bg-grid opacity-10" />
-      <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10 section-glass rounded-2xl py-8 md:py-12 w-full">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10 section-glass section-glass-hover rounded-2xl py-8 md:py-12 w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}

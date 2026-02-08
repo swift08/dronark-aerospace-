@@ -9,7 +9,7 @@ export default function AboutSection() {
   return (
     <section id="about" className="relative py-12 overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-grid opacity-[0.06]" />
-      <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-10 section-glass rounded-2xl py-8 md:py-12 w-full">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-10 section-glass section-glass-hover rounded-2xl py-8 md:py-12 w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -53,7 +53,7 @@ export default function AboutSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="grid md:grid-cols-2 gap-8"
         >
-          <div className="glass rounded-xl p-8 border border-border/50">
+          <div className="glass rounded-xl p-8 border border-border/50 hover-container cursor-default">
             <div className="flex items-center gap-3 mb-4">
               <Target className="w-6 h-6 text-primary" />
               <h3 className="font-display text-lg font-bold text-foreground">Mission</h3>
@@ -63,7 +63,7 @@ export default function AboutSection() {
               and measurable impact across critical industries.
             </p>
           </div>
-          <div className="glass rounded-xl p-8 border border-border/50">
+          <div className="glass rounded-xl p-8 border border-border/50 hover-container cursor-default">
             <div className="flex items-center gap-3 mb-4">
               <Eye className="w-6 h-6 text-primary" />
               <h3 className="font-display text-lg font-bold text-foreground">Vision</h3>

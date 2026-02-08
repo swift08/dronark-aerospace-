@@ -28,7 +28,7 @@ export default function HeroSection() {
           transition={{ delay: 1, duration: 0.5 }}
           className="mb-6"
         >
-          <span className="inline-block px-4 py-1.5 text-xs tracking-[0.4em] uppercase text-primary border border-primary/30 rounded-full">
+          <span className="inline-block px-4 py-1.5 text-xs tracking-[0.4em] uppercase text-primary border border-primary/30 rounded-full transition-all duration-300 hover:border-primary/60 hover:shadow-[0_0_20px_hsl(199_89%_48%/0.2)]">
             Precision. Intelligence. Reliability.
           </span>
         </motion.div>

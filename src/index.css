@@ -132,6 +132,36 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 hsl(215 25% 100% / 0.04);
   }
 
+  .glass-premium {
+    background: linear-gradient(135deg, hsl(222 47% 10% / 0.6) 0%, hsl(222 47% 6% / 0.5) 50%, hsl(222 47% 10% / 0.55) 100%);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    border: 1px solid hsl(215 25% 28% / 0.5);
+    box-shadow:
+      0 16px 48px rgba(0, 0, 0, 0.35),
+      0 0 0 1px hsl(215 25% 100% / 0.03) inset,
+      0 1px 0 hsl(215 25% 100% / 0.06) inset;
+  }
+
+  .glass-card-premium {
+    background: linear-gradient(160deg, hsl(222 47% 12% / 0.55) 0%, hsl(222 47% 8% / 0.45) 100%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid hsl(215 25% 25% / 0.55);
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.3),
+      0 0 0 1px hsl(215 25% 100% / 0.02) inset,
+      0 1px 0 hsl(215 25% 100% / 0.08) inset;
+  }
+  .glass-card-premium:hover {
+    border-color: hsl(199 89% 48% / 0.25);
+    box-shadow:
+      0 20px 50px rgba(0, 0, 0, 0.35),
+      0 0 32px hsl(199 89% 48% / 0.08),
+      0 0 0 1px hsl(215 25% 100% / 0.03) inset,
+      0 1px 0 hsl(215 25% 100% / 0.1) inset;
+  }
+
   .btn-glass {
     background: hsl(222 47% 10% / 0.55);
     backdrop-filter: blur(20px);
@@ -195,6 +225,32 @@
   .hover-glow:hover {
     box-shadow: 0 0 30px hsl(199 89% 48% / 0.3), 0 0 80px hsl(199 89% 48% / 0.1);
     transform: translateY(-2px);
+  }
+
+  .hover-container {
+    transition: box-shadow 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+  }
+  .hover-container:hover {
+    box-shadow: 0 0 28px hsl(199 89% 48% / 0.12), 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-color: hsl(199 89% 48% / 0.25);
+    transform: translateY(-2px);
+  }
+
+  .hover-card {
+    transition: box-shadow 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+  }
+  .hover-card:hover {
+    box-shadow: 0 0 24px hsl(199 89% 48% / 0.15);
+    border-color: hsl(199 89% 48% / 0.3);
+    transform: translateY(-3px) scale(1.01);
+  }
+
+  .section-glass-hover {
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+  }
+  .section-glass-hover:hover {
+    box-shadow: 0 0 40px hsl(199 89% 48% / 0.08), 0 8px 32px rgba(0, 0, 0, 0.25);
+    border-color: hsl(215 25% 28% / 0.6);
   }
 
   .scan-line {

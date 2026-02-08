@@ -10,7 +10,7 @@ export default function ContactSection() {
   return (
     <section id="contact" className="relative py-12" ref={ref}>
       <div className="absolute inset-0 bg-grid opacity-10" />
-      <div className="max-w-3xl mx-auto px-6 md:px-10 section-glass rounded-2xl py-8 md:py-12 w-full relative z-10">
+      <div className="max-w-3xl mx-auto px-6 md:px-10 section-glass section-glass-hover rounded-2xl py-8 md:py-12 w-full relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -58,7 +58,7 @@ export default function ContactSection() {
           className="space-y-5"
         >
           {submitted ? (
-            <div className="text-center py-16 glass rounded-xl">
+            <div className="text-center py-16 glass rounded-xl hover-container border border-border/50">
               <div className="font-display text-xl text-primary text-glow mb-2">Message Received</div>
               <p className="text-muted-foreground text-sm">We'll be in touch shortly.</p>
             </div>
