@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo.PNG";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "Founder", href: "#founder" },
+  { label: "Merchandise", href: "#merchandise" },
   { label: "Technology", href: "#technology" },
   { label: "Industries", href: "#industries" },
   { label: "About", href: "#about" },
   { label: "Success Stories", href: "#success-stories" },
-  { label: "Merchandise", href: "#merchandise" },
   { label: "Contact", href: "#contact-form" },
 ];
 
@@ -30,7 +30,7 @@ export default function Navbar() {
       transition={{ duration: 0.8, delay: 2 }}
       className={`fixed top-0 left-0 right-0 z-50 border-b border-primary/10 transition-all duration-500 ${
         scrolled
-          ? "bg-[hsl(199_55%_6%_/0.88)] backdrop-blur-md"
+          ? "bg-[hsl(199_50%_7%)]"
           : "bg-[hsl(199_50%_7%_/0.97)] backdrop-blur-sm"
       }`}
     >
@@ -39,7 +39,7 @@ export default function Navbar() {
           <img
             src={logo}
             alt="Dronark Aerospace"
-            className="h-12 md:h-14 w-auto object-contain animate-breathe animate-breathe-glow"
+            className="h-14 md:h-16 w-auto object-contain animate-breathe animate-breathe-glow"
           />
         </a>
 

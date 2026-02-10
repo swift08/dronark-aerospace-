@@ -8,7 +8,7 @@ export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <section id="contact" className="relative py-16 md:py-20" ref={ref}>
+    <section id="contact" className="relative py-12 md:py-16" ref={ref}>
       <div className="absolute inset-0 bg-grid opacity-10" />
       <div className="max-w-3xl mx-auto px-6 md:px-10 section-glass section-glass-hover rounded-2xl py-8 md:py-12 w-full relative z-10">
         <motion.div
@@ -24,7 +24,10 @@ export default function ContactSection() {
             Get In <span className="gradient-text">Touch</span>
           </h2>
           <p className="mt-3 text-sm text-muted-foreground">
-            <strong className="text-foreground/90">Corporate Office:</strong> Dhule, Maharashtra, India
+            <strong className="text-foreground/90">DRONARK AEROSPACE PVT. LTD.</strong>
+          </p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            #83, Ittamadu Main Road, BSK 3rd Stage, Padmanabha Nagar, Bangalore, Karnataka, India – 560085
           </p>
           <p className="mt-1 text-sm text-muted-foreground">
             Partner with us to explore next-generation aerial solutions.{" "}

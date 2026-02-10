@@ -1,6 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useCallback, useEffect } from "react";
 import { Play, Volume2, VolumeX } from "lucide-react";
+import { Instagram } from "lucide-react";
+import successImage1 from "@/assets/WhatsApp Image 2026-02-10 at 6.11.31 PM.jpeg";
+import successImage2 from "@/assets/WhatsApp Image 2026-02-10 at 6.12.40 PM.jpeg";
+import dubaiOfficeVideo from "@/assets/dubai office.mp4";
 
 declare global {
   interface Window {
@@ -52,6 +56,26 @@ const stories = [
     title: "YouTube Short",
     isShort: true,
   },
+  {
+    type: "instagram" as const,
+    url: "https://www.instagram.com/reel/DUBNkeyk9qR/?igsh=MTkzanprc2c3Z3Z0Yg==",
+    title: "Instagram Reel",
+  },
+  {
+    type: "instagram" as const,
+    url: "https://www.instagram.com/reel/DTDOuKmE39L/?igsh=MTB6bW02dno5cGJpZA==",
+    title: "Instagram Reel",
+  },
+  {
+    type: "instagram" as const,
+    url: "https://www.instagram.com/reel/DTAuz48E2JL/?igsh=cTE3cjYxZzk2eWs2",
+    title: "Instagram Reel",
+  },
+  {
+    type: "instagram" as const,
+    url: "https://www.instagram.com/reel/DSuknqLk_CC/?igsh=azh0MG1mbzdtNXlq",
+    title: "Instagram Reel",
+  },
 ];
 
 function getYouTubeVideoId(url: string): string | null {
@@ -65,6 +89,136 @@ function getYouTubeVideoId(url: string): string | null {
 }
 
 type StoryItem = (typeof stories)[0] | typeof featuredVideo;
+
+function DubaiOfficeBlock({ isInView }: { isInView: boolean }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+
+  const toggleSound = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setMuted(videoRef.current.muted);
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: 0.12 }}
+      className="w-full mb-8"
+    >
+      <div className="rounded-2xl overflow-hidden border border-border/50 bg-muted/20 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_30px_hsl(199_89%_48%/0.12)]">
+        <div className="flex flex-col md:flex-row md:items-center">
+          <div className="relative flex justify-center bg-black/40 md:w-1/2 md:flex-shrink-0 md:max-w-md">
+            <video
+              ref={videoRef}
+              src={dubaiOfficeVideo}
+              loop
+              muted
+              playsInline
+              autoPlay
+              preload="metadata"
+              className="w-full max-w-2xl max-h-[60vh] h-auto object-contain md:max-h-[50vh]"
+            />
+            <button
+              type="button"
+              onClick={toggleSound}
+              className="absolute top-3 right-3 z-10 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors p-2"
+              aria-label={muted ? "Turn sound on" : "Turn sound off"}
+            >
+              {muted ? (
+                <VolumeX className="w-5 h-5" />
+              ) : (
+                <Volume2 className="w-5 h-5" />
+              )}
+            </button>
+          </div>
+          <div className="p-5 md:p-6 md:py-8 text-center md:text-left flex flex-col justify-center">
+            <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground">
+              New office opening in Dubai
+            </h3>
+            <p className="mt-2 text-sm text-muted-foreground max-w-2xl md:max-w-none mx-auto md:mx-0">
+              Dronark Aerospace is expanding globally. Our new office in Dubai will bring aerial solutions
+              and agri-tech innovation closer to partners across the Middle East and beyond. Watch a look
+              at the space and stay tuned for the launch.
+            </p>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function InstagramReelCard({
+  url,
+  title,
+  thumbnail: thumbnailProp,
+  index,
+  isInView,
+  compact = false,
+}: {
+  url: string;
+  title: string;
+  thumbnail?: string;
+  index: number;
+  isInView: boolean;
+  compact?: boolean;
+}) {
+  const [thumbnail, setThumbnail] = useState<string | null>(thumbnailProp ?? null);
+
+  useEffect(() => {
+    if (thumbnailProp) return;
+    const cleanUrl = url.split("?")[0];
+    fetch(`https://api.instagram.com/oembed?url=${encodeURIComponent(cleanUrl)}`)
+      .then((res) => res.json())
+      .then((data: { thumbnail_url?: string }) => data.thumbnail_url && setThumbnail(data.thumbnail_url))
+      .catch(() => {});
+  }, [url, thumbnailProp]);
+
+  const showThumbnail = thumbnail ?? thumbnailProp;
+
+  return (
+    <motion.a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
+      className="group group/card relative block rounded-2xl overflow-hidden border border-border/50 bg-muted/20 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_30px_hsl(199_89%_48%/0.12)] cursor-pointer aspect-[9/16]"
+    >
+      {showThumbnail ? (
+        <img
+          src={showThumbnail}
+          alt=""
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-105"
+        />
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-br from-[#833AB4] via-[#E1306C] to-[#F77737] opacity-90" />
+      )}
+      <div className="absolute inset-0 bg-black/30 group-hover/card:bg-black/20 transition-colors" />
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-4">
+        <div className="rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover/card:scale-110 transition-transform duration-300 shadow-lg">
+          <Play className="w-8 h-8 text-white fill-white ml-0.5" />
+        </div>
+        <Instagram className="w-8 h-8 text-white drop-shadow" />
+        <span className="text-xs text-white/90 font-medium text-center drop-shadow">Watch on Instagram</span>
+      </div>
+      {!compact && (
+        <div className="absolute bottom-2 left-2 right-2 text-center pointer-events-none">
+          <span className="text-xs text-white/90 drop-shadow">Click to watch</span>
+        </div>
+      )}
+      <div className="absolute bottom-0 left-0 right-0 p-2 text-center border-t border-white/10 bg-black/40 backdrop-blur-sm">
+        <span className="text-xs tracking-wider uppercase text-white/90">{title}</span>
+      </div>
+    </motion.a>
+  );
+}
 
 function YouTubeCard({
   story,
@@ -168,6 +322,7 @@ function YouTubeCard({
           <img
             src={story.thumbnail}
             alt=""
+            loading="lazy"
             className="absolute inset-0 w-full h-full object-contain bg-black"
           />
         )}
@@ -229,7 +384,7 @@ export default function SuccessStoriesSection() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="success-stories" className="relative py-16 md:py-20 overflow-hidden" ref={ref}>
+    <section id="success-stories" className="relative py-12 md:py-16 overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-grid opacity-[0.06]" />
       <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-10 section-glass section-glass-hover rounded-2xl py-8 md:py-12 w-full">
         <motion.div
@@ -259,6 +414,32 @@ export default function SuccessStoriesSection() {
           />
         </div>
 
+        <DubaiOfficeBlock isInView={isInView} />
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-8"
+        >
+          <div className="rounded-2xl overflow-hidden border border-border/50 bg-muted/20 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_30px_hsl(199_89%_48%/0.12)]">
+            <img
+              src={successImage1}
+              alt="Success story"
+              loading="lazy"
+              className="w-full h-auto object-contain"
+            />
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-border/50 bg-muted/20 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_30px_hsl(199_89%_48%/0.12)]">
+            <img
+              src={successImage2}
+              alt="Success story"
+              loading="lazy"
+              className="w-full h-auto object-contain"
+            />
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
@@ -267,7 +448,18 @@ export default function SuccessStoriesSection() {
         >
           {stories.map((story, i) => (
             <div key={story.url} className="flex-shrink-0 w-[160px] sm:w-[180px] md:w-auto">
-              <YouTubeCard story={story} index={i} isInView={isInView} compact />
+              {story.type === "instagram" ? (
+                <InstagramReelCard
+                  url={story.url}
+                  title={story.title}
+                  thumbnail={"thumbnail" in story ? story.thumbnail : undefined}
+                  index={i}
+                  isInView={isInView}
+                  compact
+                />
+              ) : (
+                <YouTubeCard story={story} index={i} isInView={isInView} compact />
+              )}
             </div>
           ))}
         </motion.div>

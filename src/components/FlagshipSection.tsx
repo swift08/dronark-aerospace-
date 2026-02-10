@@ -15,7 +15,7 @@ export default function FlagshipSection() {
   const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
 
   return (
-    <section className="relative py-16 md:py-20 overflow-hidden">
+    <section className="relative py-12 md:py-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-10 section-glass section-glass-hover rounded-2xl py-8 md:py-12 w-full" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -77,6 +77,7 @@ export default function FlagshipSection() {
             <img
               src={droneImage}
               alt="Agridrone series - agricultural UAV"
+              loading="lazy"
               className="w-full aspect-video object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
