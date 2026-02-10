@@ -110,7 +110,7 @@ function DubaiOfficeBlock({ isInView }: { isInView: boolean }) {
       transition={{ duration: 0.5, delay: 0.12 }}
       className="w-full mb-8"
     >
-      <div className="rounded-2xl overflow-hidden border border-border/50 bg-muted/20 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_30px_hsl(199_89%_48%/0.12)]">
+      <div className="rounded-2xl overflow-hidden glass-premium border border-primary/40 hover:border-primary/60 transition-all duration-300 hover:shadow-[0_0_40px_hsl(199_89%_48%/0.25)]">
         <div className="flex flex-col md:flex-row md:items-center">
           <div className="relative flex justify-center bg-black/40 md:w-1/2 md:flex-shrink-0 md:max-w-md">
             <video
@@ -137,7 +137,10 @@ function DubaiOfficeBlock({ isInView }: { isInView: boolean }) {
             </button>
           </div>
           <div className="p-5 md:p-6 md:py-8 text-center md:text-left flex flex-col justify-center">
-            <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground">
+            <span className="inline-flex items-center justify-center px-3 py-1 rounded-full text-[10px] font-semibold tracking-[0.25em] uppercase bg-primary/10 text-primary border border-primary/40 mb-3">
+              Global expansion
+            </span>
+            <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground text-glow">
               New office opening in Dubai
             </h3>
             <p className="mt-2 text-sm text-muted-foreground max-w-2xl md:max-w-none mx-auto md:mx-0">
