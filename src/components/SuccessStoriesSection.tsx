@@ -161,6 +161,7 @@ function DubaiOfficeBlock({ isInView }: { isInView: boolean }) {
   );
 }
 
+/** Instagram reels: link card only. Embed iframe is blocked by X-Frame-Options: SAMEORIGIN, so we always show a clickable card. */
 function InstagramReelCard({
   url,
   title,
@@ -175,43 +176,32 @@ function InstagramReelCard({
   isInView: boolean;
   compact?: boolean;
 }) {
-  const reelId = getInstagramReelId(url);
-  const embedUrl = reelId ? `https://www.instagram.com/reel/${reelId}/embed/` : null;
-
   return (
-    <motion.div
+    <motion.a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
-      className="group group/card relative rounded-2xl overflow-hidden border border-border/50 bg-muted/20 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_30px_hsl(199_89%_48%/0.12)] aspect-[9/16]"
+      className="group group/card relative block rounded-2xl overflow-hidden border border-border/50 bg-muted/20 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_30px_hsl(199_89%_48%/0.12)] aspect-[9/16]"
     >
-      {embedUrl ? (
-        <iframe
-          src={embedUrl}
-          title={title}
-          className="absolute inset-0 w-full h-full border-0"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      ) : (
-        <a
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-4 bg-gradient-to-br from-[#833AB4] via-[#E1306C] to-[#F77737] opacity-90"
-        >
-          <div className="rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover/card:scale-110 transition-transform duration-300 shadow-lg">
-            <Play className="w-8 h-8 text-white fill-white ml-0.5" />
-          </div>
-          <Instagram className="w-8 h-8 text-white drop-shadow" />
-          <span className="text-xs text-white/90 font-medium text-center drop-shadow">Watch on Instagram</span>
-        </a>
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-4 bg-gradient-to-br from-[#833AB4] via-[#E1306C] to-[#F77737] opacity-90">
+        <div className="rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover/card:scale-110 transition-transform duration-300 shadow-lg">
+          <Play className="w-8 h-8 text-white fill-white ml-0.5" />
+        </div>
+        <Instagram className="w-8 h-8 text-white drop-shadow" />
+        <span className="text-xs text-white/90 font-medium text-center drop-shadow">Watch on Instagram</span>
+      </div>
+      {!compact && (
+        <div className="absolute bottom-10 left-2 right-2 text-center pointer-events-none">
+          <span className="text-xs text-white/90 drop-shadow">Click to open</span>
+        </div>
       )}
       <div className="absolute bottom-0 left-0 right-0 p-2 text-center border-t border-white/10 bg-black/40 backdrop-blur-sm pointer-events-none">
         <span className="text-xs tracking-wider uppercase text-white/90">{title}</span>
       </div>
-    </motion.div>
+    </motion.a>
   );
 }
 
