@@ -1,5 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import droneImage from "@/assets/drone-agriculture.jpg";
 
 const hotspots = [
@@ -110,6 +112,22 @@ export default function FlagshipSection() {
               </button>
             ))}
           </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="text-center mt-8"
+        >
+          <Link
+            to="/products#agri-drone"
+            className="btn-glass-primary group relative inline-flex items-center gap-2 px-8 py-3.5 font-display text-sm tracking-widest uppercase text-primary-foreground rounded-lg overflow-hidden hover-glow transition-all duration-300"
+          >
+            <span className="relative z-10">Explore Products</span>
+            <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
+            <div className="absolute inset-0 bg-accent/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
+          </Link>
         </motion.div>
       </div>
     </section>

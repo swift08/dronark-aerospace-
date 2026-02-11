@@ -352,4 +352,90 @@
     background-size: 50px 50px;
     animation: grid-flow 20s linear infinite;
   }
+
+  /* 3D perspective & scroll-driven depth */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .perspective-2000 {
+    perspective: 2000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .origin-center {
+    transform-origin: center center;
+  }
+  .origin-bottom {
+    transform-origin: center bottom;
+  }
+
+  @keyframes float-3d {
+    0%, 100% { transform: translateY(0) rotateX(0deg); }
+    50% { transform: translateY(-12px) rotateX(2deg); }
+  }
+  @keyframes glow-orb {
+    0%, 100% { opacity: 0.4; transform: scale(1); filter: blur(60px); }
+    50% { opacity: 0.7; transform: scale(1.1); filter: blur(80px); }
+  }
+  @keyframes reveal-clip {
+    0% { clip-path: inset(0 100% 0 0 round 24px); }
+    100% { clip-path: inset(0 0 0 0 round 24px); }
+  }
+  .animate-float-3d {
+    animation: float-3d 8s ease-in-out infinite;
+  }
+  .animate-glow-orb {
+    animation: glow-orb 6s ease-in-out infinite;
+  }
+
+  /* Products hero: motion graphics & 3D portals */
+  @keyframes particle-float {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+    25% { transform: translate(8px, -20px) scale(1.1); opacity: 1; }
+    50% { transform: translate(-5px, -35px) scale(0.9); opacity: 0.5; }
+    75% { transform: translate(12px, -15px) scale(1.05); opacity: 0.9; }
+  }
+  @keyframes line-flow {
+    0% { stroke-dashoffset: 400; opacity: 0.3; }
+    50% { opacity: 0.8; }
+    100% { stroke-dashoffset: 0; opacity: 0.3; }
+  }
+  @keyframes portal-glow {
+    0%, 100% { opacity: 0.15; filter: blur(40px); }
+    50% { opacity: 0.35; filter: blur(60px); }
+  }
+  @keyframes portal-edge {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+  @keyframes data-stream {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  @keyframes pulse-ring {
+    0%, 100% { transform: scale(1); opacity: 0.2; }
+    50% { transform: scale(1.15); opacity: 0.05; }
+  }
+  .animate-particle-float {
+    animation: particle-float 12s ease-in-out infinite;
+  }
+  .animate-line-flow {
+    animation: line-flow 6s ease-in-out infinite;
+  }
+  .animate-portal-glow {
+    animation: portal-glow 4s ease-in-out infinite;
+  }
+  .animate-portal-edge {
+    animation: portal-edge 2.5s ease-in-out infinite;
+  }
+  .animate-data-stream {
+    animation: data-stream 8s linear infinite;
+  }
+  .animate-pulse-ring {
+    animation: pulse-ring 3s ease-in-out infinite;
+  }
 }
