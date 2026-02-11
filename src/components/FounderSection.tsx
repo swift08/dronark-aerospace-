@@ -41,7 +41,7 @@ export default function FounderSection() {
                   src={founderImage}
                   alt="N. M. Prathap - Founder, Dronark Aerospace"
                   className="w-full h-auto rounded-2xl shadow-2xl ring-1 ring-black/10 object-cover object-top"
-                  fetchPriority="high"
+                  fetchpriority="high"
                 />
             </div>
           </motion.div>

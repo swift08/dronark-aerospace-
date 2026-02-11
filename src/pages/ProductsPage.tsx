@@ -75,7 +75,7 @@ export default function ProductsPage() {
         style={{ scaleX: progressWidth }}
         className="fixed top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-accent to-primary origin-left z-50 pointer-events-none"
       />
-      <main ref={mainRef}>
+      <main ref={mainRef} className="relative">
         {/* Page heading */}
         <header className="relative z-10 pt-24 md:pt-28 pb-4 px-6 text-center">
           <motion.h1
