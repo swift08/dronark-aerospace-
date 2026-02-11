@@ -113,16 +113,8 @@
     text-shadow: 0 0 20px hsl(199 89% 48% / 0.5), 0 0 40px hsl(199 89% 48% / 0.2);
   }
 
-  .text-glow-accent {
-    text-shadow: 0 0 20px hsl(185 80% 55% / 0.5), 0 0 40px hsl(185 80% 55% / 0.2);
-  }
-
   .box-glow {
     box-shadow: 0 0 20px hsl(199 89% 48% / 0.15), 0 0 60px hsl(199 89% 48% / 0.05);
-  }
-
-  .box-glow-accent {
-    box-shadow: 0 0 20px hsl(185 80% 55% / 0.15), 0 0 60px hsl(185 80% 55% / 0.05);
   }
 
   .glass {
@@ -228,10 +220,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-  }
-
-  .gradient-border {
-    border-image: linear-gradient(135deg, hsl(199 89% 48% / 0.5), hsl(185 80% 55% / 0.5)) 1;
   }
 
   .hover-glow {
@@ -381,10 +369,6 @@
     0%, 100% { opacity: 0.4; transform: scale(1); filter: blur(60px); }
     50% { opacity: 0.7; transform: scale(1.1); filter: blur(80px); }
   }
-  @keyframes reveal-clip {
-    0% { clip-path: inset(0 100% 0 0 round 24px); }
-    100% { clip-path: inset(0 0 0 0 round 24px); }
-  }
   .animate-float-3d {
     animation: float-3d 8s ease-in-out infinite;
   }
@@ -416,10 +400,6 @@
     0% { transform: translateY(-100%); }
     100% { transform: translateY(100%); }
   }
-  @keyframes pulse-ring {
-    0%, 100% { transform: scale(1); opacity: 0.2; }
-    50% { transform: scale(1.15); opacity: 0.05; }
-  }
   .animate-particle-float {
     animation: particle-float 12s ease-in-out infinite;
   }
@@ -434,8 +414,5 @@
   }
   .animate-data-stream {
     animation: data-stream 8s linear infinite;
-  }
-  .animate-pulse-ring {
-    animation: pulse-ring 3s ease-in-out infinite;
   }
 }
