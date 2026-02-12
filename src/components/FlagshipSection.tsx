@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import droneImage from "@/assets/drone-agriculture.jpg";
+import droneImage from "@/assets/agri drone.jpeg";
 
 const hotspots = [
   { x: "25%", y: "35%", label: "Precision Spraying", detail: "Variable-rate nozzle system with 98.5% accuracy" },
