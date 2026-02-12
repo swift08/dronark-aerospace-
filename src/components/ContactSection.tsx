@@ -27,7 +27,7 @@ export default function ContactSection() {
             <strong className="text-foreground/90">DRONARK AEROSPACE PVT. LTD.</strong>
           </p>
           <p className="mt-1 text-sm text-muted-foreground">
-            #83, Ittamadu Main Road, BSK 3rd Stage, Padmanabha Nagar, Bangalore, Karnataka, India – 560085
+            Note down - office address only banglore , Karnataka
           </p>
           <p className="mt-1 text-sm text-muted-foreground">
             Partner with us to explore next-generation aerial solutions.{" "}

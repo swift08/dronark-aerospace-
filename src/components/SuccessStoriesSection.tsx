@@ -1,10 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useCallback, useEffect } from "react";
-import { Play, Volume2, VolumeX } from "lucide-react";
-import { Instagram } from "lucide-react";
-import successImage1 from "@/assets/WhatsApp Image 2026-02-10 at 6.11.31 PM.jpeg";
+import { Play, Volume2, VolumeX, Instagram } from "lucide-react";
+import agriDroneImage from "@/assets/WhatsApp Image 2026-02-10 at 6.11.31 PM.jpeg";
 import successImage2 from "@/assets/WhatsApp Image 2026-02-10 at 6.12.40 PM.jpeg";
 import dubaiOfficeVideo from "@/assets/dubai office.mp4";
+import successStoriesVideo from "@/assets/success stories .mp4";
 
 declare global {
   interface Window {
@@ -57,24 +57,21 @@ const stories = [
     isShort: true,
   },
   {
-    type: "instagram" as const,
-    url: "https://www.instagram.com/reel/DUBNkeyk9qR/?igsh=MTkzanprc2c3Z3Z0Yg==",
-    title: "Instagram Reel",
+    type: "youtube" as const,
+    url: "https://youtube.com/shorts/9rbMZwYq8o8?si=rNw8KfzGgQbD3S3b",
+    title: "Youtube short",
+    isShort: true,
   },
   {
-    type: "instagram" as const,
-    url: "https://www.instagram.com/reel/DTDOuKmE39L/?igsh=MTB6bW02dno5cGJpZA==",
-    title: "Instagram Reel",
+    type: "youtube" as const,
+    url: "https://youtube.com/shorts/5sFg0FdlkJU?si=C3hD1BMDVcpMVfmX",
+    title: "Youtube short",
+    isShort: true,
   },
   {
-    type: "instagram" as const,
-    url: "https://www.instagram.com/reel/DTAuz48E2JL/?igsh=cTE3cjYxZzk2eWs2",
-    title: "Instagram Reel",
-  },
-  {
-    type: "instagram" as const,
-    url: "https://www.instagram.com/reel/DSuknqLk_CC/?igsh=azh0MG1mbzdtNXlq",
-    title: "Instagram Reel",
+    type: "local" as const,
+    src: successStoriesVideo,
+    title: "Success Story",
   },
 ];
 
@@ -94,7 +91,110 @@ function getInstagramReelId(url: string): string | null {
   return m ? m[1] : null;
 }
 
-type StoryItem = (typeof stories)[0] | typeof featuredVideo;
+type LocalVideoItem = {
+  type: "local";
+  src: string;
+  title: string;
+};
+
+type YouTubeItem = {
+  type: "youtube";
+  url: string;
+  thumbnail?: string;
+  title: string;
+  isShort?: boolean;
+};
+
+type InstagramItem = {
+  type: "instagram";
+  url: string;
+  title: string;
+  thumbnail?: string;
+};
+
+type StoryItem = YouTubeItem | LocalVideoItem | InstagramItem | typeof featuredVideo;
+
+function LocalVideoCard({
+  story,
+  index,
+  isInView,
+  compact = false,
+}: {
+  story: LocalVideoItem;
+  index: number;
+  isInView: boolean;
+  compact?: boolean;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+
+  const toggleSound = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setMuted(videoRef.current.muted);
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
+      className="group group/card relative block rounded-2xl overflow-hidden border border-border/50 bg-muted/20 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_30px_hsl(199_89%_48%/0.12)] aspect-[9/16]"
+    >
+      <div className="relative w-full h-full">
+        <video
+          ref={videoRef}
+          src={story.src}
+          loop
+          muted
+          playsInline
+          autoPlay
+          preload="metadata"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/30 group-hover/card:bg-black/20 transition-colors pointer-events-none" />
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div
+            className={`rounded-full bg-primary/90 group-hover/card:bg-primary flex items-center justify-center shadow-lg transition-colors duration-300 group-hover/card:scale-110 opacity-90 ${
+              compact ? "w-10 h-10" : "w-14 h-14"
+            }`}
+          >
+            <Play
+              className={`text-primary-foreground fill-primary-foreground ml-0.5 ${
+                compact ? "w-4 h-4" : "w-6 h-6"
+              }`}
+            />
+          </div>
+        </div>
+        <div
+          className={`absolute top-3 right-3 z-10 pointer-events-auto ${compact ? "top-1.5 right-1.5" : ""}`}
+          data-sound-toggle
+        >
+          <button
+            type="button"
+            onClick={toggleSound}
+            className={`rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors ${compact ? "p-1.5" : "p-2"}`}
+            aria-label={muted ? "Unmute" : "Mute"}
+          >
+            {muted ? (
+              <VolumeX className={compact ? "w-3 h-3" : "w-4 h-4"} />
+            ) : (
+              <Volume2 className={compact ? "w-3 h-3" : "w-4 h-4"} />
+            )}
+          </button>
+        </div>
+      </div>
+      <div className={`text-center ${compact ? "p-2" : "p-4"}`}>
+        <span className="text-xs tracking-wider uppercase text-muted-foreground">
+          {story.title}
+        </span>
+      </div>
+    </motion.div>
+  );
+}
 
 function DubaiOfficeBlock({ isInView }: { isInView: boolean }) {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -212,7 +312,7 @@ function YouTubeCard({
   featured = false,
   compact = false,
 }: {
-  story: StoryItem;
+  story: YouTubeItem | typeof featuredVideo;
   index: number;
   isInView: boolean;
   featured?: boolean;
@@ -409,7 +509,7 @@ export default function SuccessStoriesSection() {
         >
           <div className="rounded-2xl overflow-hidden border border-border/50 bg-muted/20 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_30px_hsl(199_89%_48%/0.12)]">
             <img
-              src={successImage1}
+              src={agriDroneImage}
               alt="Success story"
               loading="lazy"
               className="w-full h-auto object-contain"
@@ -432,18 +532,11 @@ export default function SuccessStoriesSection() {
           className="flex flex-nowrap justify-center gap-4 overflow-x-auto md:grid md:grid-cols-4 md:overflow-visible pb-2 md:pb-0"
         >
           {stories.map((story, i) => (
-            <div key={story.url} className="flex-shrink-0 w-[160px] sm:w-[180px] md:w-auto">
-              {story.type === "instagram" ? (
-                <InstagramReelCard
-                  url={story.url}
-                  title={story.title}
-                  thumbnail={"thumbnail" in story ? story.thumbnail : undefined}
-                  index={i}
-                  isInView={isInView}
-                  compact
-                />
+            <div key={story.type === "local" ? story.src : story.url} className="flex-shrink-0 w-[160px] sm:w-[180px] md:w-auto">
+              {story.type === "local" ? (
+                <LocalVideoCard story={story as LocalVideoItem} index={i} isInView={isInView} compact />
               ) : (
-                <YouTubeCard story={story} index={i} isInView={isInView} compact />
+                <YouTubeCard story={story as YouTubeItem} index={i} isInView={isInView} compact />
               )}
             </div>
           ))}

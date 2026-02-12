@@ -5,10 +5,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Check, ArrowRight, Zap, Shield, Gauge, Leaf, Building2, Droplets } from "lucide-react";
 
-import agriDroneJpeg from "@/assets/agri drone.jpeg";
-import agriDronePng from "@/assets/agri drone 2.png";
-import industrialCleaningJpeg from "@/assets/industrial cleaning.jpeg";
-import industrialCleaningPng from "@/assets/industrial cleaning 2.png";
+import agriDronePng from "@/assets/agri drone.jpeg";
+import industrialCleaningPng from "@/assets/industrial cleaning.jpeg";
 
 const container = { hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.06, delayChildren: 0.1 } } };
 const item = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } };
@@ -265,7 +263,7 @@ export default function ProductsPage() {
               <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-foreground">
                 DRONARK <span className="gradient-text">AGRI DRONE</span>
               </h2>
-              <p className="mt-3 text-xl text-primary font-display font-semibold">Precision Farming. Elevated.</p>
+              <p className="mt-3 text-xl text-primary font-display font-semibold">Precision Farming Elevated.</p>
               <p className="mt-1 text-muted-foreground">Built for the Farmers Who Feed the Future.</p>
             </motion.div>
 
@@ -317,9 +315,17 @@ export default function ProductsPage() {
                 variants={item3D}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 style={{ transformPerspective: 1000 }}
-                className="rounded-2xl overflow-hidden border border-border/50 bg-muted/20 hover:shadow-[0_0_50px_hsl(199_89%_48%/0.15)] transition-all duration-500 [transform-style:preserve-3d]"
+                className="rounded-2xl overflow-hidden border border-border/50 bg-muted/20 hover:shadow-[0_0_50px_hsl(199_89%_48%/0.15)] transition-all duration-500 [transform-style:preserve-3d] relative"
               >
-                <img src={agriDroneJpeg} alt="Agri Drone in action" className="w-full h-auto object-cover" loading="lazy" />
+                <div className="absolute inset-0">
+                  <img src={agriDronePng} alt="Agri Drone card" className="w-full h-full object-cover object-center" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 z-20 p-6">
+                  <span className="text-[10px] tracking-[0.3em] uppercase text-primary/90 font-medium">Precision Farming</span>
+                  <h3 className="font-display text-lg font-bold text-foreground mt-1">Agri Drone</h3>
+                  <p className="text-muted-foreground text-sm mt-0.5">Spray smarter. Cover more. Risk less.</p>
+                </div>
               </motion.div>
               <div>
                 <h3 className="font-display text-xl font-bold text-foreground mb-4">Why Choose Dronark Agri Drone?</h3>
@@ -503,9 +509,17 @@ export default function ProductsPage() {
                 variants={item3D}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 style={{ transformPerspective: 1000 }}
-                className="rounded-2xl overflow-hidden border border-border/50 bg-muted/20 order-1 md:order-2 hover:shadow-[0_0_50px_hsl(199_89%_48%/0.15)] transition-all duration-500 [transform-style:preserve-3d]"
+                className="rounded-2xl overflow-hidden border border-border/50 bg-muted/20 order-1 md:order-2 hover:shadow-[0_0_50px_hsl(199_89%_48%/0.15)] transition-all duration-500 [transform-style:preserve-3d] relative"
               >
-                <img src={industrialCleaningJpeg} alt="Industrial Cleaning Drone" className="w-full h-auto object-cover" loading="lazy" />
+                <div className="absolute inset-0">
+                  <img src={industrialCleaningPng} alt="Industrial Cleaning card" className="w-full h-full object-cover object-center" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 z-20 p-6">
+                  <span className="text-[10px] tracking-[0.3em] uppercase text-accent font-medium">Infrastructure</span>
+                  <h3 className="font-display text-lg font-bold text-foreground mt-1">Industrial Cleaning</h3>
+                  <p className="text-muted-foreground text-sm mt-0.5">Clean at height. Zero human risk.</p>
+                </div>
               </motion.div>
             </motion.div>
 
@@ -576,13 +590,16 @@ export default function ProductsPage() {
               Ideal for: High-Rise Glass Buildings · Corporate Towers · Solar Farms · Industrial Warehouses · Airports & Mega Structures
             </motion.p>
 
-            <motion.div
+              <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-center"
             >
-              <Link to="/#contact-form" className="btn-glass-primary px-6 py-3 font-display text-sm tracking-widest uppercase rounded-lg hover-glow">
+              <Link
+                to="/#contact-form"
+                className="btn-glass-primary px-4 md:px-6 py-2.5 md:py-3 font-display text-xs md:text-sm tracking-widest uppercase rounded-lg hover-glow whitespace-nowrap"
+              >
                 Schedule a Live Demo — Cleaning Drone
               </Link>
             </motion.div>

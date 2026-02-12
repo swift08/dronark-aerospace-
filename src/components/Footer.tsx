@@ -4,7 +4,7 @@ import { Instagram, MapPin, Mail, Youtube } from "lucide-react";
 const INSTAGRAM_URL = "https://www.instagram.com/dronark.aerospace";
 const YOUTUBE_URL = "https://www.youtube.com/@itsdroneprathap";
 const EMAIL = "dronarkaerospace@gmail.com";
-const ADDRESS = "DRONARK AEROSPACE PVT. LTD., #83, Ittamadu Main Road, BSK 3rd Stage, Padmanabha Nagar, Bangalore, Karnataka, India – 560085";
+const ADDRESS = "Bengaluru, Karnataka";
 
 export default function Footer() {
   return (
