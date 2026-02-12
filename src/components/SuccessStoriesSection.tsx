@@ -42,13 +42,7 @@ const stories = [
     title: "YouTube Short",
     isShort: true,
   },
-  {
-    type: "youtube" as const,
-    url: "https://www.youtube.com/shorts/DGWmr8rnRj8",
-    thumbnail: "https://img.youtube.com/vi/DGWmr8rnRj8/hqdefault.jpg",
-    title: "YouTube Short",
-    isShort: true,
-  },
+
   {
     type: "youtube" as const,
     url: "https://www.youtube.com/shorts/iZ1Tga9a6Eg",

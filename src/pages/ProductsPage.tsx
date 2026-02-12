@@ -606,6 +606,88 @@ export default function ProductsPage() {
           </div>
         </section>
 
+        {/* Divider with 3D line */}
+        <div className="max-w-4xl mx-auto px-6 py-16">
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent origin-center"
+          />
+        </div>
+
+        {/* ========== DRONE DELIVERY SYSTEM — New product section ========== */}
+        <section id="drone-delivery-system" className="relative scroll-mt-24 perspective-1000">
+          <div className="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-24">
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-14"
+            >
+              <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-foreground">
+                DRONARK <span className="gradient-text">DRONE DELIVERY SYSTEM</span>
+              </h2>
+              <p className="mt-3 text-xl text-primary font-display font-semibold">Redefining Last-Mile Logistics</p>
+              <p className="mt-1 text-muted-foreground">Autonomous Aerial Delivery for the Future of Smart Logistics.</p>
+            </motion.div>
+
+            {/* Video Embed */}
+            <motion.div
+              initial={{ opacity: 0, rotateX: -20, y: 60 }}
+              whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              style={{ transformPerspective: 1200 }}
+              className="relative preserve-3d origin-center mb-16"
+            >
+              <motion.div
+                className="rounded-2xl overflow-hidden section-glass border border-primary/20 shadow-[0_0_60px_hsl(199_89%_48%/0.12)] [transform-style:preserve-3d]"
+                style={{ boxShadow: "0 25px 80px rgba(0,0,0,0.4), 0 0 60px hsl(199 89% 48% / 0.12)" }}
+              >
+                <div className="w-full aspect-video">
+                  <iframe
+                    src="https://www.youtube.com/embed/DGWmr8rnRj8"
+                    title="Drone Delivery System"
+                    className="w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6 }}
+              className="section-glass section-glass-hover rounded-2xl p-8 md:p-12 mb-14 border border-primary/10"
+            >
+              <p className="text-muted-foreground leading-relaxed text-lg">
+                Revolutionizing logistics with autonomous aerial delivery, our Drone Delivery System is engineered to transport food, medicine, and essential packages significantly faster than traditional road networks. Inspired by ultra-fast delivery models like Zepto, this platform combines intelligent navigation, advanced safety systems, and aerospace-grade engineering to redefine last-mile delivery. Built for speed, reliability, and scalability, it represents the next generation of smart logistics.
+              </p>
+              <p className="mt-4 font-display text-lg gradient-text font-semibold">
+                The future of delivery is aerial.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <Link to="/#contact-form" className="btn-glass-primary px-6 py-3 font-display text-sm tracking-widest uppercase rounded-lg hover-glow">
+                Request a Demo — Drone Delivery System
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+
         {/* CTA — 3D tilted card */}
         <section className="relative py-20 md:py-28 overflow-hidden perspective-1000">
           <div className="absolute inset-0 bg-grid opacity-[0.06]" />
